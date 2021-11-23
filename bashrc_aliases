@@ -1,0 +1,137 @@
+# bashrc_aliases: general aliases
+# 
+# This file can be sourced from the file bashrc in the same dir.
+# 
+# MvdS, 2021-11-23
+
+
+
+####################################################################################################
+# Basic Linux commands:
+####################################################################################################
+
+# Ask confirmation before removing or overwriting:
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -ip'
+alias ln='ln -vi'
+alias rename='rename -vi'
+
+alias ls='ls --color=auto'
+# alias lls='ls -lGh'
+alias lls='ls -lGh --time-style="+ %e %b  %Y$newline %e %b %H:%M"'
+alias ll=lls  # Catch typo
+alias als='lls -A'
+alias isols='ls -lA --full-time'
+alias lsft='ls -lA --full-time'
+alias lslast='lls -rt |tail'
+alias lswc='echo `ls |wc -l` entries found'
+
+alias scp='scp -rpC'
+alias rsync='rsync -urvtplhPzz'  # Systems using zlib need zz
+alias lo='exit'
+# alias open='xdg-open'
+alias cls='cd && clear'
+# alias gcc='colorgcc'
+
+alias finger='pinky'  # Back from my UNIX days... :-)
+alias last='last -a'
+
+alias du='du -h'
+alias du0='du --max-depth=0'
+alias du1='du --max-depth=1'
+alias du2='du --max-depth=2'
+alias du3='du --max-depth=3'
+alias du1sort="du1 | sort -h"
+
+alias treed='tree -d'
+alias treed1='tree -d -L 1'
+alias treed2='tree -d -L 2'
+alias treed3='tree -d -L 3'
+
+alias grep='grep --colour=auto'
+alias ngrep='grep -n'   # Add line numbers
+alias egrep='grep -E'   # Use regexps
+alias igrep='egrep -i'  # Case insensitive
+
+alias tailf='tail --follow=name --retry'
+alias less='less -Si'
+alias lesscode="LESSOPEN='|src-hilite-lesspipe.sh %s' less"
+
+alias ssh='ssh -XYC'
+alias ssh-passwd='ssh -o PubkeyAuthentication=no'
+
+# Emacs:
+alias temacs='TERM=screen-256color /usr/bin/emacs -nw'  # Default; for dark bg
+alias ltemacs='TERM=xterm-256color /usr/bin/emacs -nw'  # For light bg
+# alias emacs='temacs'  # Use this by default - stops temacs from being recognised?!
+alias emacs='TERM=screen-256color /usr/bin/emacs -nw'  # Default; for dark bg
+alias bemacs='/usr/bin/emacs'  # In case I need the system default
+
+
+# Git:
+# Note: some of these commands (like llog) need to be defined as aliases in your ~/.gitconfig
+alias gitdiff='git diff --color=always -w -U1'
+alias gitdiffword='git diff --color=always -w -U1 --word-diff=color'
+alias gitdiffi='git idiff'  # After:  git config --global difftool.idiff.cmd 'colordiff -i -w -U1 $LOCAL $REMOTE'
+alias gitdiffc='git cdif'
+
+# alias gitst='git status'
+alias gitstl='git status |less'
+alias gitst='git br && echo && git status -sbv -uno && echo'
+alias gitsts=gitst
+alias gitstlsold="lsft -rt \$(git status -s --porcelain  |grep '^ M' | awk '{print \$2}')"
+alias gitstls="lsft -rt \$(git status --porcelain=v2  |grep -v '^?' | awk '{print \$9}')"
+alias gitserver='gitst |grep ahead'
+
+alias gitlog='git llog'
+alias gitloga='git lloga'
+alias gittree='git tree'
+# alias gittree0='git tree0'
+# alias gittree1='git tree1'
+# alias gittree2='git tree2'
+
+alias gitbr='git br'
+alias gitbrl='git brl'
+# alias gitcommit='echo -n "Current directory: " ; pwd ; emacs & git commit'
+# alias gitcommitall='git dif ; echo -n "Current directory: " ; pwd ; emacs & sleep 1 ; git commit -a'
+alias gitautocommit='git commit -m "Automated commit of `date +"%Y-%m-%d %H:%M:%S."`"'
+alias gitautocommitall='git commit -a -m "Automated commit of `date +"%Y-%m-%d %H:%M:%S."`"'
+alias gitinitialcommit='git commit -a -m "Initial commit on `date +"%Y-%m-%d %H:%M:%S."`"'
+# 2021-07-01: now a script in ~/usr/bin:
+# alias gitcommitfixup='git commit -m "Fixup commit"'
+# alias gitcommitallfixup='git commit -a -m "Fixup commit"'
+# alias gitcommitfixupall='git commit -a -m "Fixup commit"'
+alias gituncommit-and-unadd='git reset HEAD^'
+alias gituncommit-keep-add='git reset --soft HEAD^'
+alias git-list-all-files='git list-all-files'
+alias git-list-all-files-ever='git log --pretty=format: --name-only --diff-filter=A | /bin/grep -Ev "^$" | sort -'
+
+# GitHub:
+alias gist='gist --copy --open --skip-empty'  # dev-ruby/gist: copy URL to clipboard, open in browser and skip empty files
+
+
+# Zip:
+alias gzip='gzip -v'
+alias gunzip='gunzip -v'
+alias bzip2='bzip2 -vp'
+alias bunzip2='bunzip2 -v'
+alias xz='xz -ve'
+alias unxz='unxz -v'
+alias zstd='zstd -19 --rm'
+alias unzstd='zstd --rm'
+
+
+alias dmesg='dmesg -H'
+alias dmesgless='dmesg --color=always |less'
+
+alias watch='watch -c'
+alias upload_wgetpaste='wgetpaste'
+alias wget-ff='wget --user-agent="Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0"'  # Wget pretending to be Firefox
+
+# My environment:
+alias usrbin='cd ~/usr/bin'
+alias bin=usrbin
+alias bashrc='temacs ~/.bashrc'
+
+

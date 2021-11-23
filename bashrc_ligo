@@ -1,0 +1,12 @@
+# bashrc_ligo: settings for LIGO/Virgo clusters
+# 
+# This file can be sourced from the file bashrc in the same dir.
+# 
+# MvdS, 2021-11-23
+
+
+# LIGO:
+alias cdif='git --no-pager diff --color --no-index'  # No colordiff available
+alias cdifw='git --no-pager diff --color --word-diff=color --no-index'
+
+

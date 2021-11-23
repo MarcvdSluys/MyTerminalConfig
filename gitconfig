@@ -1,0 +1,73 @@
+# General git config
+# 
+# You can source this file from your ~/.gitconfig using
+# [include]
+#         path = ~/.myconfig/gitconfig
+#
+# MvdS, 2021-11-23
+
+
+[color]
+        branch = auto
+        diff = auto
+        status = always
+
+[color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+	upstream = green
+
+[color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+
+[color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
+
+[alias]
+        ci = commit
+        st = status
+        co = checkout
+	# Note: !git --no-pager  specifies the --no-pager option for git (not the subcommand, e.g. branch)
+        br = !git --no-pager branch -vv
+        brl = branch -vva
+	dif = !git --no-pager diff --color=always -w -U1
+	udiff = !git --no-pager diff --color=never -u
+	oneline = log --decorate --pretty=format:\"%C(yellow)%h%Creset  %Cgreen%ai%Creset  %C(cyan)%an%Creset %C(red reverse)%d%Creset %s\"
+        la = log --pretty=\"format:%ad %h (%an): %s\" --date=short
+        orglog = log --pretty=format:\"** %ad  %s (%an)\n\" --date=format:'<%Y-%m-%d %a %H:%M>'
+        codeversion = log --pretty=\"format:%h (%ad)\" --date=short -n1
+        dates-names = log --pretty=\"format:%h \t %ai \t %ci \t %an <%ae> \t %cn <%ce>\"
+	loclog = log --date=local --decorate --stat --graph --pretty=format:\"*******************************************************************************%n%n%C(red reverse)%d%Creset %Cgreen%h%Creset %C(yellow)(%ad)%Creset - %C(yellow)%ar %C(cyan)by %an%Creset%n%n%n%C(cyan)Message:%Creset%n%B%n%n%C(cyan)Changes:%Creset\"
+	# llog = log --date=iso --decorate --stat --graph --pretty=format:\"*******************************************************************************%n%n%C(red reverse)%d%Creset %Cgreen%h%Creset %C(yellow)(%ad)%Creset - %C(yellow)%ar %C(cyan)by %an%Creset%n%n%n%C(cyan)Message:%Creset%n%B%n%n%C(cyan)Changes:%Creset\"
+	llog = log --date=format:'%a %Y-%m-%d %H:%M:%S' --stat --graph --pretty=format:\"*******************************************************************************%n%n%C(red reverse)%d%Creset %Cgreen%h%Creset %C(yellow)(%ad)%Creset - %C(yellow)%ar %C(cyan)by %an%Creset%n%n%n%C(cyan)Message:%Creset%n%B%n%n%C(cyan)Changes:%Creset\"
+	lloga = log --all --date=format:'%a %Y-%m-%d %H:%M:%S' --stat --graph --pretty=format:\"*******************************************************************************%n%n%C(red reverse)%d%Creset %Cgreen%h%Creset %C(yellow)(%ad)%Creset - %C(yellow)%ar %C(cyan)by %an%Creset%n%n%n%C(cyan)Message:%Creset%n%B%n%n%C(cyan)Changes:%Creset\"
+	chlog = log --date=iso --decorate --stat --graph --pretty=format:\"\"
+        chlog1 = log --pretty=\"format:%ad  %h:  %s\" --date=format:'%Y-%m-%d %H:%M'
+	tree1 = log --graph --pretty=oneline --abbrev-commit --all
+	tree2 = log --graph --pretty=\"format:%ad %C(yellow)%h%Creset %C(yellow bold)%d%Creset %s\" --date=short --abbrev-commit --all
+	tree3 = log --graph --pretty=\"format:%ad %C(yellow)%h%Creset (%C(cyan)%an%Creset)%C(yellow bold)%d%Creset: %s\" --date=short --abbrev-commit --all
+	tree4 = log --graph --pretty=\"format:%ad %C(yellow)%h%Creset (%C(cyan)%an <%ae>%Creset): %s\" --date=iso --abbrev-commit --all
+	tree5 = log --graph --pretty=\"format:%C(yellow)%ad%Creset - %C(cyan)%an%Creset - %C(green)%h%Creset%C(red reverse)%d%Creset - %s %C(yellow bold)(%ar)%Creset\" --abbrev-commit --all --date=format:'%a %Y-%m-%d %H:%M:%S'
+	tree = !git tree5
+	list-all-files = ls-tree --full-tree -r --name-only HEAD
+	list-all-files-ever = !git log --pretty=format: --name-only --diff-filter=A | grep -Ev '^$' | sort -
+	rootdir = rev-parse --show-toplevel
+
+# External diff tools:
+[difftool "idiff"]
+	cmd = colordiff -i -w -U1 $LOCAL $REMOTE |less
+[difftool "cdif"]
+	cmd = cdif -wb --colormap="COMMAND=W,COMMAND=W,OMARK=r,OTEXT=W,NMARK=g,NTEXT=W,OCHANGE=DELETE=DR,NCHANGE=APPEND=DG" $LOCAL $REMOTE |less
+[difftool "icdif"]
+	cmd = cdif -wbi --colormap="COMMAND=W,COMMAND=W,OMARK=r,OTEXT=W,NMARK=g,NTEXT=W,OCHANGE=DELETE=DR,NCHANGE=APPEND=DG" $LOCAL $REMOTE |less
+
+[alias]
+	idiff = !git difftool -t idiff -y
+	cdif  = !git difftool -t cdif -y
+	icdif = !git difftool -t icdif -y

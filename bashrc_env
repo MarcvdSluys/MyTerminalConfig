@@ -1,0 +1,53 @@
+# bashrc_env: environment
+# 
+# This file can be sourced from the file bashrc in the same dir.
+# 
+# MvdS, 2021-11-23
+
+
+# Coloured prompt:
+export PS1='[\[\033[0;1;34m\]\u\[\033[0m\]@\[\033[1;41m\]\h\[\033[0m\] \W]\$ '
+
+# History:
+export HISTCONTROL="ignoreboth"   # Ignore repeated commands and commands starting with a space
+export HISTSIZE=10000             # Make a history file of 10k lines, rather than 500
+export HISTFILESIZE=100000        # Make a history file of 100k lines, rather than 500
+# export HISTTIMEFORMAT="%d-%m %H:%M:%S  "  # Attach a time label to the history command
+shopt -s histappend               # Makes bash append to history rather than overwrite
+
+
+# Shell options:
+shopt -s cdspell                  # Correct minor typos in directory names on cd command
+shopt -s dirspell                 # Correct minor typos in directory names on tab completion
+shopt -s checkjobs                # Do not exit if shell has running/suspended jobs
+shopt -s hostcomplete             # Allow tab completion of host names
+shopt -s no_empty_cmd_completion  # Don't search PATH for tab completion on empty command
+# shopt -s nocaseglob               # Case-insensitive file name expansion (i.e. ls F* lists 'file')
+set -o ignoreeof                  # C-d does NOT exit the shell!
+
+
+# Colour in man pages (when using less as a pager - see man 5 termcap):
+# export LESS_TERMCAP_mb=$'\E[01;34m'  # Blinking -> bold blue (for light bg)
+# export LESS_TERMCAP_md=$'\E[01;34m'  # Bold (section names, cl options) -> bold blue (for light bg)
+export LESS_TERMCAP_mb=$'\E[01;33m'  # Blinking -> bold yellow (for dark bg)
+export LESS_TERMCAP_md=$'\E[01;33m'  # Bold (section names, cl options) -> bold yellow (for dark bg)
+export LESS_TERMCAP_me=$'\E[0m'      # End bold/blinking
+export LESS_TERMCAP_so=$'\E[01;44m'  # Standout mode - pager -> bold white on blue
+export LESS_TERMCAP_se=$'\E[0m'      # End standout
+export LESS_TERMCAP_us=$'\E[01;31m'  # Underline - variables -> bold red
+export LESS_TERMCAP_ue=$'\E[0m'      # End underline
+export GROFF_NO_SGR=1                # Does this actually do something - see man grotty
+
+
+# Default editor:
+# export EDITOR='/usr/bin/emacs -nw'
+# export EDITOR='/usr/bin/emacsclient -nw -a /usr/bin/emacs -nw'
+export EDITOR='TERM=screen-256color /usr/bin/emacs -nw'  # Default; for dark terminal background
+# export EDITOR='TERM=xterm-256color /usr/bin/emacs -nw'  # For light terminal background
+
+export PAGER='less'
+
+# Show dates and times in my zone and format:
+export TZ=Europe/Amsterdam
+export LC_TIME="en_GB"  # Set date format for e.g. ls, date, Thunderbird (side effects?)
+

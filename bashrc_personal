@@ -1,0 +1,18 @@
+# bashrc_personal: personal settings
+# 
+# This file can be sourced from the file bashrc in the same dir.
+# 
+# MvdS, 2021-11-23
+
+
+# Custom prompt with MvdS iso long user name:
+exitstatus() {  # Can print colour codes here, but not characters!
+    if [[ $? == 0 ]]; then
+        echo -e '\E[1;42m'
+    else
+        echo -e '\E[1;41m'
+    fi
+}
+# export PS1='[\[$(exitstatus)\]\A\[\033[0;1;34m\] \u\[\033[0m\]@\[\033[1;41m\]\h\[\033[0m\] \W]\$ '
+export PS1='[\[$(exitstatus)\]\A\[\033[0;1;34m\] MvdS\[\033[0m\]@\[\033[1;41m\]\h\[\033[0m\] \W]\$ '
+
