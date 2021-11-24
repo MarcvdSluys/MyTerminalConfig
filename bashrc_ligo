@@ -5,8 +5,11 @@
 # MvdS, 2021-11-23
 
 
-# LIGO:
+# LIGO/Virgo environment:
+export SINGULARITYENV_PS1=`echo -e "[\E[1;41mSingularity\E[0m> \W]\$ "`
+
+# LIGO/Virgo aliases:
+alias diff='git --no-pager diff --color --no-index'  # No colordiff available
 alias cdif='git --no-pager diff --color --no-index'  # No colordiff available
 alias cdifw='git --no-pager diff --color --word-diff=color --no-index'
-
 
