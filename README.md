@@ -2,6 +2,7 @@
 
 My generic configuration files for bash, emacs and git for easy download on a remote machine.
 
+
 ## Clone ##
 
 Clone into a subdirectory of your home dir, e.g. `~/.myconfig/`:
@@ -18,6 +19,9 @@ In `~/.bashrc`, add e.g.
 # My generic bash configuration:
 . ~/.myconfig/bashrc
 ```
+
+Note that bashrc will source all files called `bashrc_*` in the directory `~/.myconfig/`.  Hence you could add
+e.g. `bashrc_local` with local settings.  Also note that the path `~/.myconfig/` is hardcoded in `bashrc`.
 
 
 ## Emacs ##
