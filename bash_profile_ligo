@@ -1,0 +1,20 @@
+# bash_profile_ligo: settings for LIGO/Virgo clusters
+# 
+# This file can be sourced from the file bash_profile in the same dir.
+# 
+# MvdS, 2021-12-01
+
+
+# Perl:
+PATH="$PATH:$HOME/.perl5/bin"
+export PATH
+
+# Added by CPAN for PERL, 2019-10-05:
+# MvdS: rename ~/perl5 -> ~/.perl5
+#PATH="$HOME/.perl5/bin${PATH:+:${PATH}}"; export PATH;  # See above
+PERL5LIB="$HOME/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="$HOME/.perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"$HOME/.perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/.perl5"; export PERL_MM_OPT;
+
+

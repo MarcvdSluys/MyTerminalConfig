@@ -14,14 +14,22 @@ git clone https://github.com/MarcvdSluys/MyTerminalConfig.git .myconfig
 
 ## Bash ##
 
+In `~/.bash_profile`, add e.g.
+```bash
+# My generic bash configuration:
+. ~/.myconfig/bash_profile
+```
+
 In `~/.bashrc`, add e.g.
 ```bash
 # My generic bash configuration:
 . ~/.myconfig/bashrc
 ```
 
-Note that bashrc will source all files called `bashrc_*` in the directory `~/.myconfig/`.  Hence you could add
-e.g. `bashrc_local` with local settings.  Also note that the path `~/.myconfig/` is hardcoded in `bashrc`.
+Note that `~/.myconfig/bash_profile` and `~/.myconfig/bashrc` will source all files called `bash_profile_*`
+and `bashrc_*` respectively in the directory `~/.myconfig/`.  Hence you could add e.g. `bash_profile_local`
+and/or `bashrc_local` with local settings.  Also note that the path `~/.myconfig/` is hardcoded in
+`bash_profile` and `bashrc`.
 
 
 ## Emacs ##
