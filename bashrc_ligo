@@ -13,3 +13,6 @@ alias diff='git --no-pager diff --color --no-index'  # No colordiff available
 alias cdif='git --no-pager diff --color --no-index'  # No colordiff available
 alias cdifw='git --no-pager diff --color --word-diff=color --no-index'
 
+# Create a x509_proxy for me in the current directory:
+alias proxy-x509-create="X509_USER_PROXY=x509_proxy ligo-proxy-init -p $USER"
+
