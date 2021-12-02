@@ -1,0 +1,30 @@
+#!/bin/bash
+
+##  dagman-out-final: show the errors in a .dagman.out file
+##  2021-12-02, MvdS:  initial version.
+
+# Check command-line arguments:
+if [ ${#} -eq 0 ]
+then
+    command=`echo ${0} |sed -e "s/^.*\///g"`  # Remove path (e.g. ./)
+    echo "This program shows the errors in a .dagman.out file"
+    echo "Syntax:  ${command} <file.dagman.out>"
+    echo "No file name was provided, looking for the latest .dagman.out file in the current dir."
+    FILES=`ls -rt *.dagman.out | tail -1`
+    if [[ "$FILES" == "" ]]
+    then
+	exit 1
+    fi
+else
+    # All arguments are considered file names:
+    FILES="$@"
+fi
+
+# Loop through the file(s) and list any errors:
+for FILE in $FILES
+do
+    echo -e "\n$FILE:"
+    grep -B4 -A6 'Node Status: .*ERROR' $FILE
+done
+
+echo
