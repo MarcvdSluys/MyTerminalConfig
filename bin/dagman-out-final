@@ -1,0 +1,30 @@
+#!/bin/bash
+
+##  dagman-out-final: show final nodes status from a .dagman.out file
+##  2021-12-02, MvdS:  initial version.
+
+# Check command-line arguments:
+if [ ${#} -eq 0 ]
+then
+    command=`echo ${0} |sed -e "s/^.*\///g"`  # Remove path (e.g. ./)
+    echo "This program shows the final nodes status from a .dagman.out file"
+    echo "Syntax:  ${command} <file.dagman.out>"
+    echo "No file name was provided, looking for the latest .dagman.out file in the current dir."
+    FILES=`ls -rt *.dagman.out | tail -1`
+    if [[ "$FILES" == "" ]]
+    then
+	exit 1
+    fi
+else
+    # All arguments are considered file names:
+    FILES="$@"
+fi
+
+# Loop through the file(s) and show the last nodes status:
+for FILE in $FILES
+do
+    echo -e "\n$FILE:"
+    grep -A4 'nodes total:' $FILE | tail -5
+done
+
+echo

@@ -51,3 +51,7 @@ In `~/.gitconfig`, add a section like
 	path = ~/.myconfig/gitconfig
 ```
 
+## Bin ##
+
+The directory `~/.myconfig/bin` contains executables, typically (bash) shell scripts.
+
