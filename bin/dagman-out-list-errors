@@ -13,7 +13,8 @@ then
     FILES=`ls -rt *.dagman.out | tail -1`
     if [[ "$FILES" == "" ]]
     then
-	exit 1
+	echo "No dagman.out file found, aborting."
+	exit 0
     fi
 else
     # All arguments are considered file names:
