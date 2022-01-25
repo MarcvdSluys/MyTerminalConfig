@@ -29,3 +29,6 @@ export LIGO_USER
 # Create a x509_proxy for me in the current directory:
 alias proxy-x509-create="X509_USER_PROXY=x509_proxy ligo-proxy-init -p $LIGO_USER"
 
+# Needs to be defined for GstLAL, use default:
+export GSTLAL_FIR_WHITEN=0  # Set to 0 or 1
+
