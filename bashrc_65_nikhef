@@ -18,5 +18,13 @@ then
     # Git doesn't recognise data format on visar, and I need less -R:
     alias gitlog='git log --stat --graph --pretty=format:"*******************************************************************************%n%n%C(red reverse)%d%Creset %Cgreen%h%Creset %C(yellow)(%ad)%Creset - %C(yellow)%ar %C(cyan)by %an%Creset%n%n%n%C(cyan)Message:%Creset%n%B%n%n%C(cyan)Changes:%Creset" | less -R'
     
+    # You may want to use Nikhef's dcache, data or project directories:
+    export DCACHEDIR="/dcache/gravwav/$USER"
+    export PROJECTDIR="/project/gravwav/$USER"
+    export DATADIR="/data/gravwav/$USER"
+    
+    # TMPDIR is set on LIGO clusters, set it at Nikhef as well:
+    export TMPDIR='/tmp'
+    
 fi
 
