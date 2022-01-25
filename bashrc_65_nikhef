@@ -1,0 +1,22 @@
+# bashrc_nikhef: settings for Nikhef clusters, overruling those for LIGO/Virgo clusters
+# 
+# This file can be sourced from the file bashrc in the same dir.
+# 
+# MvdS, 2022-01-25
+
+
+# Run on Nikhef clusters only:
+HN=$HOSTNAME
+if [[ $HN == "fiora" || $HN == "visar" || $HN == "stbc-i1" ||  $HN == "stbc-i2" ]]
+then
+    
+    # SSH inside Nikhef:
+    alias visar="ssh visar"
+    alias stbc-i1="ssh stbc-i1"
+    alias stbc-i2="ssh stbc-i2"
+    
+    # Git doesn't recognise data format on visar, and I need less -R:
+    alias gitlog='git log --stat --graph --pretty=format:"*******************************************************************************%n%n%C(red reverse)%d%Creset %Cgreen%h%Creset %C(yellow)(%ad)%Creset - %C(yellow)%ar %C(cyan)by %an%Creset%n%n%n%C(cyan)Message:%Creset%n%B%n%n%C(cyan)Changes:%Creset" | less -R'
+    
+fi
+
