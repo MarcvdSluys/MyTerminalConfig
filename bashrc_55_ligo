@@ -19,9 +19,9 @@ LIGO_USER=$USER
 
 # However, if the file ./my-ligo-name is present, use that instead to override the above:
 # This file should ONLY contain the username on the FIRST LINE, e.g. "albert.einstein" (w/o quotes).
-if [ -f ./my-ligo-name ]
+if [ -f $HOME/.myconfig/my-ligo-name ]
 then
-    LIGO_USER=`head -1 ./my-ligo-name`
+    LIGO_USER=`head -1 $HOME/.myconfig/my-ligo-name`
 fi
 export LIGO_USER
 
