@@ -13,6 +13,19 @@ export SINGULARITYENV_PS1=`echo -e "[\E[1;41mSingularity\E[0m> \W]\$ "`
 alias cdif='git --no-pager diff --color --no-index -U1'  # No colordiff available
 alias cdifw='git --no-pager diff --color --word-diff=color --no-index -U1'
 
+
+# By default (on a LIGO cluster), my LIGO user name is my user name:
+LIGO_USER=$USER
+
+# However, if the file ./my-ligo-name is present, use that instead to override the above:
+# This file should ONLY contain the username on the FIRST LINE, e.g. "albert.einstein" (w/o quotes).
+if [ -f ./my-ligo-name ]
+then
+    LIGO_USER=`head -1 ./my-ligo-name`
+fi
+export LIGO_USER
+
+
 # Create a x509_proxy for me in the current directory:
-alias proxy-x509-create="X509_USER_PROXY=x509_proxy ligo-proxy-init -p $USER"
+alias proxy-x509-create="X509_USER_PROXY=x509_proxy ligo-proxy-init -p $LIGO_USER"
 
