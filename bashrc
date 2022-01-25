@@ -6,7 +6,7 @@
 # MvdS, 2021-11-23
 
 
-# Source other bashrc files (~/.myconfig/bashrc_*):
+# Source other bashrc files (~/.myconfig/bashrc_*) in alphabetical order:
 for FILE in `ls $HOME/.myconfig/bashrc_*`
 do
     . $FILE

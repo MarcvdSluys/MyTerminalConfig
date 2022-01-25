@@ -11,7 +11,7 @@ PATH="$PATH:$HOME/.myconfig/bin"
 export PATH
 
 
-# Source other bash_profile files (~/.myconfig/bash_profile_*):
+# Source other bash_profile files (~/.myconfig/bash_profile_*) in alphabetical order:
 for FILE in `ls $HOME/.myconfig/bash_profile_*`
 do
     . $FILE
