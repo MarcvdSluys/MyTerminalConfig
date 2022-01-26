@@ -1,0 +1,12 @@
+# bash_profile_ligo: settings for LIGO/Virgo clusters
+# 
+# This file can be sourced from the file bash_profile in the same dir.
+# 
+# MvdS, 2021-12-01
+
+
+# For the singularity binary:
+PATH="$PATH:/cvmfs/oasis.opensciencegrid.org/mis/singularity/bin"
+
+export $PATH
+
