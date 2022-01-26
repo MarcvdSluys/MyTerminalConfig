@@ -8,5 +8,5 @@
 # For the singularity binary:
 PATH="$PATH:/cvmfs/oasis.opensciencegrid.org/mis/singularity/bin"
 
-export $PATH
+export PATH
 
