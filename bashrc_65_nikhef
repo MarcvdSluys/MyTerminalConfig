@@ -26,5 +26,7 @@ then
     # TMPDIR is set on LIGO clusters, set it at Nikhef as well:
     export TMPDIR='/tmp'
     
+    # My default Singularity image:
+    export MYIMAGE="/cvmfs/singularity.opensciencegrid.org/lscsoft/gstlal:master"
 fi
 
