@@ -7,7 +7,7 @@
 
 # Run on Nikhef clusters only:
 HN=$HOSTNAME
-if [[ $HN == "fiora" || $HN == "visar" || $HN == "stbc-i1" ||  $HN == "stbc-i2" ]]
+if [[ $HN =~ "fiora" || $HN =~ "visar" || $HN =~ "stbc-i1" ||  $HN =~ "stbc-i2" ]]
 then
     
     # SSH inside Nikhef:
