@@ -5,4 +5,5 @@
 
 condor_status -total \
     | grep Total \
+    | tail -1 \
     | awk '{printf "Condor status:  %i out of %i cores are busy (%0.1f%%),  %i of %i cores are free (%0.1f%%).\n", $4,$2,$4/$2*100, $5,$2,$5/$2*100}'
