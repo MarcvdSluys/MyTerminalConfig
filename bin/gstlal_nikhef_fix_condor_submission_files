@@ -1,0 +1,15 @@
+#!/bin/bash
+
+##  gstlal_nikhef_fix_condor_submission_files:  fixes HTCondor submission files for use on Nikhef clusters (Ganymede/Visar for now).
+##  2022-02-02, MvdS:  initial version.
+
+sed -i \
+    -e 's|ON_SUCCESS|ON_EXIT|g' \
+    -e 's|&& (CpuFamily =?= 6) ||g' \
+    -e 's|HAS_SINGULARITY|HasSingularity|g' \
+    *.sub
+
+# Notes:
+#   1) ON_SUCCESS was introduced in HTCondor v8.9.7; replace with ON_EXIT.
+#   2) On Ganymede, the CPU family of the submit node (Visar) is different than on the compute node; remove.
+#   3) GstLAL produces the requirement HAS_SINGULARITY, but Ganymede needs HasSingularity; replace.  (Condor version issue?)

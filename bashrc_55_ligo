@@ -5,6 +5,10 @@
 # MvdS, 2021-11-23
 
 
+# Overwrite aliases:
+alias rename='rename -v'  # No -i option in 2011 version
+
+
 # LIGO/Virgo environment:
 export SINGULARITYENV_PS1=`echo -e "[\E[1;41mSingularity\E[0m> \W]\$ "`
 
