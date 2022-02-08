@@ -140,8 +140,9 @@ alias cq='condor_q'
 alias wcq='watch -n 1 condor_q'
 alias cqw=wcq
 alias cqa='condor_q -analyze'
-alias cqba='condor_q -better-analyze'  # == -better
+alias cqb='condor_q -better'  # == -better-analyze
 alias crm='condor_rm'
+
 alias csub=condor_submit
 alias csubd=condor_submit_dag
 
