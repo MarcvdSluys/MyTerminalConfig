@@ -5,6 +5,10 @@
 # MvdS, 2021-11-23
 
 
+# Use this in the alias for lls further down:
+newline='
+'
+
 
 ####################################################################################################
 # Basic Linux commands:
