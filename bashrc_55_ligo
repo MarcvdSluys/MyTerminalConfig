@@ -38,5 +38,5 @@ export GSTLAL_FIR_WHITEN=0  # Set to 0 or 1
 
 # My default Singularity image:
 export GSTLAL_IMG_MASTER="/cvmfs/singularity.opensciencegrid.org/lscsoft/gstlal:master"
-export GSTLAL_IMG=GSTLAL_IMG_MASTER  # Short
-export MYIMAGE=GSTLAL_IMG_MASTER  # Obsolescent
+export GSTLAL_IMG=$GSTLAL_IMG_MASTER  # Short
+export MYIMAGE=$GSTLAL_IMG_MASTER  # Obsolescent
