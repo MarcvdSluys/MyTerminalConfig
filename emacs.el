@@ -64,8 +64,9 @@
 ;; Html mode for .htm(l) files - no longer happens by default since 2018-09:
 (add-to-list 'auto-mode-alist '("\\.html*\\'" . html-mode) )
 
-;; Configuration mode for files ending in *rc:
+;; Configuration mode for files ending in *rc or Condor *.sub?:
 (add-to-list 'auto-mode-alist '(".*rc$" . conf-space-mode) )
+(add-to-list 'auto-mode-alist '("\\.sub.?\\'" . conf-space-mode) )
 
 ;; Crontab mode for crontab.* files:
 (add-to-list 'auto-mode-alist '("crontab.*\\'" . crontab-mode) )
