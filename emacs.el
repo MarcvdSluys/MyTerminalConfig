@@ -52,18 +52,27 @@
 ;; Default major mode is org-mode:
 (setq-default major-mode 'org-mode)
 
-;; Move cursor by camelCase - http://ergoemacs.org/emacs/emacs_subword-mode_superword-mode.html
-(global-subword-mode 1)
+;; Sh-mode if bash shebang is present:
+(add-to-list 'interpreter-mode-alist '("#!/bin/bash" . sh-mode))
 
-;; Makefile mode for files starting with Makefile, configuration mode for files ending in rc:
-(add-to-list 'auto-mode-alist
-             '("\\Makefile*\\'" . makefile-mode)
-             '("\\*rc\\'" . conf-space-mode)
-             )
+;; Sh mode for files starting with bashrc*:
+(add-to-list 'auto-mode-alist '("bashrc.*\\'" . sh-mode) )
+
+;; Makefile mode for files starting with Makefile, configuration mode for files ending in rc:                                                                                                                                                                                  
+(add-to-list 'auto-mode-alist '("Makefile.*\\'" . makefile-mode) )
+
+;; Html mode for .htm(l) files - no longer happens by default since 2018-09:
+(add-to-list 'auto-mode-alist '("\\.html*\\'" . html-mode) )
+
+;; Configuration mode for files ending in *rc:
+(add-to-list 'auto-mode-alist '(".*rc$" . conf-space-mode) )
 
 ;; Crontab mode for crontab.* files:
-(add-to-list 'auto-mode-alist '("\\crontab.*\\'" . crontab-mode) )
+(add-to-list 'auto-mode-alist '("crontab.*\\'" . crontab-mode) )
 
+
+;; Move cursor by camelCase - http://ergoemacs.org/emacs/emacs_subword-mode_superword-mode.html
+(global-subword-mode 1)
 
 ;; Show path in buffer:
 (require 'uniquify)
