@@ -60,6 +60,6 @@ export LC_TIME="en_GB"  # Set date format for e.g. ls, date, Thunderbird (side e
 # 	. ~/.myconfig/bash_completion.d/${file}
 #     done
 # fi
-[ -f ${HOME}/.dircoloursrc ] && eval `dircolors ${HOME}/.myconfig/dircoloursrc`
+[ -f ${HOME}/.myconfig/dircoloursrc ] && eval `dircolors ${HOME}/.myconfig/dircoloursrc`
 
 
