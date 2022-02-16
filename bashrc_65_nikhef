@@ -23,6 +23,10 @@ then
     export PROJECTDIR="/project/gravwav/$USER"
     export DATADIR="/data/gravwav/$USER"
     
+    alias projects='cd $PROJECTDIR'
+    alias dcache='cd $DCACHEDIR'
+    alias data='cd $DATADIR'
+    
     # TMPDIR is set on LIGO clusters, set it at Nikhef as well:
     export TMPDIR='/tmp'
 fi
