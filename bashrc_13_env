@@ -51,3 +51,15 @@ export PAGER='less'
 export TZ=Europe/Amsterdam
 export LC_TIME="en_GB"  # Set date format for e.g. ls, date, Thunderbird (side effects?)
 
+
+# Bash completion and my colour definitions for ls:
+# if [ -d ~/.myconfig/bash_completion.d/ ]
+# then
+#     for file in `ls ~/.myconfig/bash_completion.d/`
+#     do
+# 	. ~/.myconfig/bash_completion.d/${file}
+#     done
+# fi
+[ -f ${HOME}/.dircoloursrc ] && eval `dircolors ${HOME}/.myconfig/dircoloursrc`
+
+
