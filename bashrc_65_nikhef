@@ -29,5 +29,8 @@ then
     
     # TMPDIR is set on LIGO clusters, set it at Nikhef as well:
     export TMPDIR='/tmp'
+    
+    # Make these shares available in the Singularity containers:
+    export SINGULARITY_BIND="/project,/data,/dcache,/tmp"
 fi
 
