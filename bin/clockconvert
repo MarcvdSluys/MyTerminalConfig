@@ -1,0 +1,18 @@
+#!/bin/bash
+
+##  clockconvert:  covert clock times between time zones.
+##  2021-10-21, MvdS:  initial version.
+
+# Check command-line arguments:
+if [ ${#} -eq 0 ]
+then
+    command=`echo ${0} |sed -e "s/^.*\///g"`  # Remove path (e.g. ./)
+    echo "This program takes a clock time in a given time zone and converts it to your current timezone."
+    echo "Error: at least one argument was expected"
+    echo "Syntax:   ${command} <time>"
+    echo "Example:  ${command} 9 PDT"
+    exit 1
+fi
+
+echo -n "$* = "
+date -d "$*" +"%H:%M %Z"
