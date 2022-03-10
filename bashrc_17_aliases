@@ -140,7 +140,8 @@ alias bashrc='temacs ~/.bashrc'
 
 
 # My terminal config settings:
-alias myconfig-pull='cd ~/.myconfig && echo "Downloading latest version of https://github.com/MarcvdSluys/MyTerminalConfig.git to $PWD:" && git pull && cd - &> /dev/null'
+alias myterminalconfig-pull='cd ~/.myconfig && echo "Downloading latest version of https://github.com/MarcvdSluys/MyTerminalConfig.git to $PWD:" && git pull && cd - &> /dev/null'
+alias myconfig-pull=myterminalconfig-pull
 
 # Condor:
 alias cq='condor_q'
