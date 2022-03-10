@@ -5,8 +5,17 @@
 # MvdS, 2021-12-01
 
 
-# For the singularity binary:
-PATH="$PATH:/cvmfs/oasis.opensciencegrid.org/mis/singularity/bin"
 
-export PATH
+# Run on Nikhef clusters only:
+HN=$HOSTNAME
+if [[ $HN =~ "fiora" || $HN =~ "visar" || $HN =~ "stbc-i1" ||  $HN =~ "stbc-i2" ]]
+then
+    # For the singularity binary:
+    PATH="$PATH:/cvmfs/oasis.opensciencegrid.org/mis/singularity/bin"
+    
+    export PATH
+    
+    # To build Singularity containers:
+    export SINGULARITY_CACHEDIR="/user/$USER/dcache/.singularity/cache"
+fi
 
