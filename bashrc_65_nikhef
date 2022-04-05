@@ -27,6 +27,10 @@ then
     alias dcache='cd $DCACHEDIR'
     alias data='cd $DATADIR'
     
+    # Different from LIGO:
+    alias gw_data_find='gw_data_find --server datafind.ligo.org:443'  # LIGO uses some local network?
+    
+    
     # TMPDIR is set on LIGO clusters, set it at Nikhef as well:
     export TMPDIR='/tmp'
     
