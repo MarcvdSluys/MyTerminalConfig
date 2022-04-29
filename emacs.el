@@ -55,9 +55,6 @@
 ;; Sh-mode if bash shebang is present:
 (add-to-list 'interpreter-mode-alist '("#!/bin/bash" . sh-mode))
 
-;; Sh mode for files starting with bashrc*:
-(add-to-list 'auto-mode-alist '("bashrc.*\\'" . sh-mode) )
-
 ;; Makefile mode for files starting with Makefile, configuration mode for files ending in rc:                                                                                                                                                                                  
 (add-to-list 'auto-mode-alist '("Makefile.*\\'" . makefile-mode) )
 
@@ -67,6 +64,9 @@
 ;; Configuration mode for files ending in *rc or Condor *.sub?:
 (add-to-list 'auto-mode-alist '(".*rc$" . conf-space-mode) )
 (add-to-list 'auto-mode-alist '("\\.sub.?\\'" . conf-space-mode) )
+
+;; Except Sh mode for files starting with bashrc*:
+(add-to-list 'auto-mode-alist '("bashrc.*\\'" . sh-mode) )
 
 ;; Crontab mode for crontab.* files:
 (add-to-list 'auto-mode-alist '("crontab.*\\'" . crontab-mode) )
