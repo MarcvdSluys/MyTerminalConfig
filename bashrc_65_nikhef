@@ -35,6 +35,6 @@ then
     export TMPDIR='/tmp'
     
     # Make these shares available in the Singularity containers:
-    export SINGULARITY_BIND="/project,/data,/dcache,/tmp"
+    export SINGULARITY_BIND="/user,/project,/data,/dcache,/tmp"
 fi
 
