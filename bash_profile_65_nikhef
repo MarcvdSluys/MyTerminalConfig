@@ -8,7 +8,7 @@
 
 # Run on Nikhef clusters only:
 HN=$HOSTNAME
-if [[ $HN =~ "fiora" || $HN =~ "visar" || $HN =~ "stbc-i1" ||  $HN =~ "stbc-i2" ]]
+if [[ $HN =~ "fiora" || $HN =~ "visar" || $HN =~ "stbc-i" ||  $HN =~ "wn-lot-0" ]]
 then
     # For the singularity binary:
     PATH="$PATH:/cvmfs/oasis.opensciencegrid.org/mis/singularity/bin"
@@ -16,6 +16,20 @@ then
     export PATH
     
     # To build Singularity containers:
-    export SINGULARITY_CACHEDIR="/user/$USER/dcache/.singularity/cache"
+    export SINGULARITY_CACHEDIR="/data/gravwav/$USER/.singularity/"
+fi
+
+
+# Run on Stro:
+HN=$HOSTNAME
+if [[ $HN == "stro.nikhef.nl" ]]
+then
+    # For the singularity binary:
+    PATH="$PATH:/cvmfs/oasis.opensciencegrid.org/mis/singularity/bin"
+    
+    export PATH
+    
+    # To build Singularity containers:
+    # export SINGULARITY_CACHEDIR="/data/gravwav/$USER/.singularity/"
 fi
 
