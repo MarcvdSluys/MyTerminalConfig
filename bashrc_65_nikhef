@@ -38,3 +38,12 @@ then
     export SINGULARITY_BIND="/user,/project,/data,/dcache,/tmp"
 fi
 
+# For Stro:
+if [[ $HN == "stro.nikhef.nl" ]]
+then
+    # TMPDIR is set on LIGO clusters, set it at Nikhef as well:
+    export TMPDIR='/tmp'
+    
+    # Make these shares available in the Singularity containers:
+    export SINGULARITY_BIND="/home,/user"
+fi
