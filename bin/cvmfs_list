@@ -1,0 +1,10 @@
+#!/bin/bash
+
+##  cvmfs_list:  lists the repositories in /cvmfs/ and thereby makes them discoverable.
+##  2022-05-12, MvdS:  initial version.
+
+for REPO in `grep CVMFS_REPOSITORIES /etc/cvmfs/default.local | sed -e 's|CVMFS_REPOSITORIES=||' -e 's|[\\",]| |g'`
+do
+    echo $REPO
+    ls /cvmfs/$REPO &> /dev/null
+done
