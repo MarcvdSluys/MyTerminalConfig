@@ -33,7 +33,7 @@ do
     NODENAME=`grep -B3 'Node Status: .*ERROR' $FILE | grep 'Node Name:' | awk '{print $5}' | sed 's|\.|_|g'`
     JOBID=`grep -A6 'Node Status: .*ERROR' $FILE | grep 'HTCondor Job ID:' | grep -v '\[not yet submitted\]' | awk '{print $6}' | sed -e 's|(||g' -e 's|\.[0-9])$||g' -e 's|\.|-|g'`
     ERRFILE="logs/$NODENAME-$JOBID.err"
-    if [ $ERRFILE != "logs/-.err" ]
+    if [ "$ERRFILE" != "logs/-.err" ]
     then
 	echo -e "\E[1;32m                  ERROR FILE: $ERRFILE\E[0m"
     fi
