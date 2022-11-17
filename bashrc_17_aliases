@@ -59,7 +59,7 @@ alias egrep='grep -E'   # Use regexps
 alias igrep='egrep -i'  # Case insensitive
 
 alias tailf='tail --follow=name --retry'
-alias less='less -Si'
+# alias less='less -Si'  # Use LESS in .bash_profile
 alias lesscode="LESSOPEN='|src-hilite-lesspipe.sh %s' less"
 
 alias ssh='ssh -XYC'

@@ -33,3 +33,16 @@ then
     # export SINGULARITY_CACHEDIR="/data/gravwav/$USER/.singularity/"
 fi
 
+
+# Less:
+# Default:
+#  -R: ANSI escape colours
+#  -M: verbose prompt
+#  --shift 5: shift 5 characters on left/right arrow
+# Mine:
+#  -S:  chop long lines (don't wrap)
+#  -i:  case-insensitive search (unless match has upper case)
+#  -j5: target/match is 5 lines from top when finding search
+export LESS="-R -M --shift 5 -S -i -j5"
+
+
