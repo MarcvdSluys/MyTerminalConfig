@@ -13,11 +13,13 @@ fi
 
 # 1) Sort the *.err files chronologically,
 # 2) display them with file name using tail iso cat,
-# 3) filter oute some unwanted content and
+# 3) filter oute some unwanted content,
+# 4) add colours to the file-name separator, and
 # 4) paginate:
 
 tail -n +1 $(ls -rt logs/*.err) \
     | grep -vEi 'APPTAINERENV|^quit:' \
+    | sed 's|==>.*<==|\x1B[41;1m&\x1B[0m|' \
     | less
 
 echo
