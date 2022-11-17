@@ -1,7 +1,7 @@
 #!/bin/bash
 
-##  dagman-out-final: show the errors in a .dagman.out file
-##  2021-12-02, MvdS:  initial version.
+##  dagman-out-list-errors: show the errors in a .dagman.out file
+##  2021-12-02, MvdS:  initial version, adapted from dagman-out-final.
 
 # Check command-line arguments:
 if [ ${#} -eq 0 ]

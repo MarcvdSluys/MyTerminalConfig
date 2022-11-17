@@ -1,0 +1,23 @@
+#!/bin/bash
+
+##  dagman-logs-list-errors-chrono: show the errors in the logs/ subdirectory in chronological order.
+##  2022-11-17, MvdS:  initial version.
+
+# Check command-line arguments:
+if [ ${#} -eq 0 ]
+then
+    command=`echo ${0} |sed -e "s/^.*\///g"`  # Remove path (e.g. ./)
+    echo "This program shows the errors in the logs/ subdirectory in chronological order."
+    echo "Syntax:  ${command}"
+fi
+
+# 1) Sort the *.err files chronologically,
+# 2) display them with file name using tail iso cat,
+# 3) filter oute some unwanted content and
+# 4) paginate:
+
+tail -n +1 $(ls -rt logs/*.err) \
+    | grep -vEi 'APPTAINERENV|^quit:' \
+    | less
+
+echo
