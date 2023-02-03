@@ -145,11 +145,13 @@ alias myconfig-pull=myterminalconfig-pull
 
 # Condor:
 alias cq='condor_q'
-alias wcq='watch -n 1 condor_q'
-alias cqw=wcq
+alias cqw='watch -n 1 condor_q'
 alias cqa='condor_q -analyze'
 alias cqb='condor_q -better'  # == -better-analyze
+alias cqu='condor_q $USER'    # Your own jobs (as 'query')
+alias cquw='watch -n 1 condor_q $USER'    # Your own jobs (as 'query')
 alias crm='condor_rm'
+
 
 alias csub=condor_submit
 alias csubd=condor_submit_dag
