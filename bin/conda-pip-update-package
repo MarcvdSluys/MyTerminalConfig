@@ -1,0 +1,24 @@
+#!/bin/bash
+
+##  conda-pip-update-package:  updates a PyPI/pip package in Conda by uninstalling and installing it using pip under Conda.
+##  2023-02-28, MvdS:  initial version.
+
+# Check command-line arguments:
+if [ ${#} -eq 0 ]
+then
+    command=`echo ${0} |sed -e "s/^.*\///g"`  # Remove path (e.g. ./)
+    echo "${command}:  updates a PyPI/pip package in Conda by uninstalling and installing it using pip under Conda."
+    echo "Error: at least one argument was expected"
+    echo "Syntax:  ${command} <package name>"
+    exit 1
+fi
+
+function error() {
+    echo -e "\E[1;41mERROR: package $1 could not be $2ed, aborting...\E[0m\n"
+    exit 1
+}
+
+conda run pip uninstall --yes "$1" || error "$1" "uninstall"  # Interactive confirmation does NOT work through Conda!
+conda run pip install "$1"         || error "$1" "install"
+
+echo -e "\E[1;32mPackage $1 seems to have been updated correctly.\E[0m\n"
