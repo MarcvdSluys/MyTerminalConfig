@@ -10,13 +10,13 @@
 HN=$HOSTNAME
 if [[ $HN =~ "fiora" || $HN =~ "visar" || $HN =~ "stbc-i" ||  $HN =~ "wn-lot-0" ]]
 then
-    # For the singularity binary:
-    PATH="$PATH:/cvmfs/oasis.opensciencegrid.org/mis/singularity/bin"
+    # For the Apptainer binary:
+    PATH="$PATH:/cvmfs/oasis.opensciencegrid.org/mis/apptainer/bin"
     
     export PATH
     
-    # To build Singularity containers:
-    export SINGULARITY_CACHEDIR="/data/gravwav/$USER/.singularity/"
+    # To build Apptainer containers:
+    export APPTAINER_CACHEDIR="/data/gravwav/$USER/.apptainer/"
 fi
 
 
@@ -24,13 +24,13 @@ fi
 HN=$HOSTNAME
 if [[ $HN == "stro.nikhef.nl" ]]
 then
-    # For the singularity binary:
-    PATH="$PATH:/cvmfs/oasis.opensciencegrid.org/mis/singularity/bin"
+    # For the Apptainer binary:
+    PATH="$PATH:/cvmfs/oasis.opensciencegrid.org/mis/apptainer/bin"
     
     export PATH
     
-    # To build Singularity containers:
-    # export SINGULARITY_CACHEDIR="/data/gravwav/$USER/.singularity/"
+    # To build Apptainer containers:
+    # export APPTAINER_CACHEDIR="/data/gravwav/$USER/.apptainer/"
 fi
 
 

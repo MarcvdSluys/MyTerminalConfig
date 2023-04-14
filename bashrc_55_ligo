@@ -10,7 +10,7 @@ alias rename='rename -v'  # No -i option in 2011 version
 
 
 # LIGO/Virgo environment:
-export SINGULARITYENV_PS1=`echo -e "[\E[1;41mSingularity\E[0m> \W]\$ "`
+export APPTAINERENV_PS1=`echo -e "[\E[1;41mApptainer\E[0m> \W]\$ "`
 
 # LIGO/Virgo aliases:
 # alias diff='git --no-pager diff --color --no-index'  # No colordiff available
@@ -36,7 +36,7 @@ alias proxy-x509-create="X509_USER_PROXY=x509_proxy ligo-proxy-init -p $LIGO_USE
 # Needs to be defined for GstLAL, use default:
 export GSTLAL_FIR_WHITEN=0  # Set to 0 or 1
 
-# My default Singularity image:
-export GSTLAL_IMG_MASTER="/cvmfs/singularity.opensciencegrid.org/lscsoft/gstlal:master"
+# My default Apptainer image:
+export GSTLAL_IMG_MASTER="/cvmfs/apptainer.opensciencegrid.org/lscsoft/gstlal:master"
 export GSTLAL_IMG=$GSTLAL_IMG_MASTER  # Short
 export MYIMAGE=$GSTLAL_IMG_MASTER  # Obsolescent
