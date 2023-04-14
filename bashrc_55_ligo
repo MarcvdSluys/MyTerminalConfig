@@ -36,7 +36,7 @@ alias proxy-x509-create="X509_USER_PROXY=x509_proxy ligo-proxy-init -p $LIGO_USE
 # Needs to be defined for GstLAL, use default:
 export GSTLAL_FIR_WHITEN=0  # Set to 0 or 1
 
-# My default Apptainer image:
-export GSTLAL_IMG_MASTER="/cvmfs/apptainer.opensciencegrid.org/lscsoft/gstlal:master"
+# My default Apptainer (Singularity!!!) image:
+export GSTLAL_IMG_MASTER="/cvmfs/singularity.opensciencegrid.org/lscsoft/gstlal:master"
 export GSTLAL_IMG=$GSTLAL_IMG_MASTER  # Short
 export MYIMAGE=$GSTLAL_IMG_MASTER  # Obsolescent
